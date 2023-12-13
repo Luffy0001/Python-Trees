@@ -5,3 +5,4 @@ class TreeNode:
     self.value = value
 
 seed = TreeNode("Tom")
+print(seed)
