@@ -10,18 +10,18 @@ class TreeNode:
     
   def remove_child(self, child_node):
     print("Removing " + child_node.value + " from " + self.value)
-    self.children = [new_children for new_children in self.children if new_children != child_node]
-    #new_children = []
-    #for child in self.children:
-    #  if child != child_node:
-    #    new_children.append(child)
-    #self.children = new_children
+    self.children = [child for child in self.children 
+                     if child is not child_node]
 
-root = TreeNode("I am Root")
-child = TreeNode("A wee sappling")
-bad_seed = TreeNode("Root Rot!")
+  def traverse(self):
+    print(self.value)
+    for child in self.children:
+      print(child.value)
 
-root.add_child(child)
-root.add_child(bad_seed)
+root = TreeNode("CEO")
+first_child = TreeNode("Vice-President")
+second_child = TreeNode("Head of Marketing")
 
-root.remove_child(bad_seed)
+root.add_child(first_child)
+root.add_child(second_child)
+root.traverse()
